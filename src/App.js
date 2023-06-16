@@ -29,7 +29,7 @@ function App() {
     <div className="App">
       <Header cartProducts={cartProducts}/>
       <Routes>
-      <Route path="/" element={<Homepage data={data} setCartProducts={setCartProducts}/>} />
+      <Route path="/" element={<Homepage data={data} setCartProducts={setCartProducts} cartData={cartProducts}/>} />
       <Route path="/cart" element={  <Cart cartData={cartProducts} setCartProducts={setCartProducts}/>} />
       </Routes>
       <Footer />

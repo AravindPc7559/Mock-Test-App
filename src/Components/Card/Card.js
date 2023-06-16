@@ -1,8 +1,11 @@
 import React from 'react'
 import { AiFillDelete } from 'react-icons/ai';
 import {BsCartPlus} from 'react-icons/bs'
+import {GrFormAdd} from 'react-icons/gr'
 
 const Card = (props) => {
+
+  const isItemInCart = props.cartData.length && props.cartData.find((item) => item.id === props.id)
 
     const shortenText = (text, maxLength) => {
         if (text.length <= maxLength) {
@@ -35,20 +38,13 @@ const Card = (props) => {
     <button
     onClick={() => props.handleCart(props.id)}
     className='inline-flex mb-3 items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
-            {
-              props.page === "cart" && "Delete"
-             }
-             {
-              props.page === "Hoempage" && "Add To Cart "
-             }
-             {
-              props.page === "cart" && 
-              <AiFillDelete className='text-xl ml-3' />
-             }
-               {
-              props.page === "Hoempage" && 
-              <BsCartPlus className='text-xl ml-3' /> 
-            }
+       {isItemInCart ? "Add More" : "Add To Cart"} 
+       {isItemInCart ? 
+       <>
+       <GrFormAdd className='text-2xl ml-3' />
+       </>
+       : <BsCartPlus className='text-xl ml-3' /> } 
+          
         </button>
 </div>
 

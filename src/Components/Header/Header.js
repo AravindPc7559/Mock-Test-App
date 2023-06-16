@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const Header = (props) => {
   const router = useNavigate()
   return (
-    <header className="flex items-center justify-between py-4 px-8 bg-gray-200 fixed w-full">
+    <header className="flex items-center justify-between py-4 px-8 bg-gray-200 fixed w-full z-20">
       <div className="flex items-center cursor-pointer" onClick={() => router('/')}>
         <img src="https://w7.pngwing.com/pngs/361/627/png-transparent-leaf-logo-green-leaves-green-and-teal-leaf-logo-text-maple-leaf-grass.png" alt="Logo" className="h-8 w-8 mr-2" />
         <h1 className="text-xl font-bold">MOCK TEST</h1>
