@@ -32,7 +32,10 @@ const Cart = (props) => {
            <p className='text-lg font-bold'>
            TOTAL :  {
                    props.cartData.reduce((accumulator, currentItem) => {
-                       return accumulator + currentItem.price;
+                    for(let i= 0 ; i< currentItem.count; i ++){
+                        currentItem.price = currentItem.price + currentItem.price
+                    }
+                       return accumulator +  currentItem.price ;
                      }, 0)
                }
                 /-
