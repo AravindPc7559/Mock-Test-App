@@ -3,13 +3,22 @@ import { MdDeleteForever } from 'react-icons/md'
 import ItemIncreaser from '../ItemIncreaser/ItemIncreaser'
 
 const CartCard = (props) => {
+    
+    const shortenText = (text, maxLength) => {
+        if (text.length <= maxLength) {
+          return text;
+        }
+      
+        return text.substring(0, maxLength) + "...";
+      };
+
   return (
     <div className='flex flex-col items-center h-[150px] relative justify-between overflow-hidden bg-white border border-gray-200 rounded-lg shadow md:flex-row z-10  hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 w-full '>   
     <div className='flex'>
-    <img class="object-cover w-full rounded-t-lg h-full md:w-48 bg-cover md:rounded-none md:rounded-l-lg" src={props.image} alt="" />
+    <img class="object-cover w-full rounded-t-lg min-h-full md:w-48 bg-cover md:rounded-none md:rounded-l-lg" src={props.image} alt="" />
     <div class="flex flex-col p-4 leading-normal justify-center  px-16">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-start">{props.title}</h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-start">{props.description}</p>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-start">{shortenText(props.description, 180)}</p>
         <p class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-start">RS: {props.price} /-</p>
     </div>
     </div>
